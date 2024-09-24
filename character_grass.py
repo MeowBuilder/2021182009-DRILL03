@@ -55,21 +55,26 @@ def run_circle():
         draw_boy(x,y)
     pass
 
-def run_tri_bottom():
-    print('TRI_BOTTOM')
-    pass
 def run_tri_right():
     print('TRI_RIGHT')
+    y = 600
+    for x in range(400,800,10):
+        y -= 15
+        draw_boy(x,y)
     pass
 def run_tri_left():
     print('TRI_LEFT')
+    y = 0
+    for x in range(0,400,10):
+        y += 15
+        draw_boy(x,y)
     pass
 
 def run_triangle():
     print('TRIANGLE')
-    run_tri_bottom()
-    run_tri_right()
     run_tri_left()
+    run_tri_right()
+    run_bottom()
     pass
 
 while(True):
