@@ -46,14 +46,16 @@ def run_rectangle():
     run_bottom()
 
 def goto_circle_start(r,cx,cy):
-    x = r * cos(radians(180)) + cx
+    for x in range(0,int(r * cos(radians(180)) + cx),10):
+        draw_boy(x,0)
     for y in range(0,int(r * sin(radians(180)) + cy),10):
-        draw_boy(x,y)
+        draw_boy(int(r * cos(radians(180)) + cx),y)
 
 def goto_circle_end(r,cx,cy):
-    x = r * cos(radians(180)) + cx
     for y in range(int(r * sin(radians(180)) + cy),0,-10):
-        draw_boy(x,y)
+        draw_boy(int(r * cos(radians(180)) + cx),y)
+    for x in range(int(r * cos(radians(180)) + cx),0,-10):
+        draw_boy(x,0)
 
 def run_circle():
     r, cx, cy = 300, 800//2, 600//2
@@ -70,8 +72,8 @@ def run_triangle():
     run_bottom()
 
 while(True):
-    #run_rectangle()
-    #run_triangle()
+    run_rectangle()
+    run_triangle()
     run_circle()
     
 
