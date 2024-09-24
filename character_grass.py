@@ -42,7 +42,6 @@ def run_rectangle():
     run_right()
     run_bottom()
     run_left()
-    
     pass
 
 def run_circle():
@@ -54,12 +53,29 @@ def run_circle():
         y = r * sin(radians(d)) + cy
 
         draw_boy(x,y)
-    
+    pass
+
+def run_tri_bottom():
+    print('TRI_BOTTOM')
+    pass
+def run_tri_right():
+    print('TRI_RIGHT')
+    pass
+def run_tri_left():
+    print('TRI_LEFT')
+    pass
+
+def run_triangle():
+    print('TRIANGLE')
+    run_tri_bottom()
+    run_tri_right()
+    run_tri_left()
     pass
 
 while(True):
-    run_rectangle()
+    #run_rectangle()
     #run_circle()
+    run_triangle()
     break
     
 
