@@ -27,20 +27,6 @@ def run_left():
     for y in range(0,550,10):
         draw_boy(0,y)
 
-def run_rectangle():
-    run_top()
-    run_right()
-    run_bottom()
-    run_left()
-
-def run_circle():
-    r, cx, cy = 300, 800//2, 600//2
-    for d in range(0,360):
-        x = r * cos(radians(d)) + cx
-        y = r * sin(radians(d)) + cy
-
-        draw_boy(x,y)
-
 def run_tri_right():
     y = 600
     for x in range(400,800,10):
@@ -53,15 +39,40 @@ def run_tri_left():
         y += 15
         draw_boy(x,y)
 
+def run_rectangle():
+    run_left()
+    run_top()
+    run_right()
+    run_bottom()
+
+def goto_circle_start(r,cx,cy):
+    x = r * cos(radians(180)) + cx
+    for y in range(0,int(r * sin(radians(180)) + cy),10):
+        draw_boy(x,y)
+
+def goto_circle_end(r,cx,cy):
+    x = r * cos(radians(180)) + cx
+    for y in range(int(r * sin(radians(180)) + cy),0,-10):
+        draw_boy(x,y)
+
+def run_circle():
+    r, cx, cy = 300, 800//2, 600//2
+    goto_circle_start(r,cx,cy)
+    for d in range(-180,180):
+        x = r * cos(radians(d)) + cx
+        y = r * sin(radians(d)) + cy
+        draw_boy(x,y)
+    goto_circle_end(r,cx,cy)
+
 def run_triangle():
     run_tri_left()
     run_tri_right()
     run_bottom()
 
 while(True):
-    run_rectangle()
+    #run_rectangle()
+    #run_triangle()
     run_circle()
-    run_triangle()
     
 
 close_canvas()
